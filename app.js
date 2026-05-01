@@ -49,12 +49,16 @@ function loadFirms() {
   firms.forEach(firm => {
     const div = document.createElement("div");
     div.className = "card";
-    div.innerHTML = `
-      <h3>${firm.name}</h3>
-      <p>Profit Split: ${firm.profit_split}%</p>
-      <p>Price: $${firm.price}</p>
-      <a href="${firm.affiliate_url}" target="_blank">
-        <button>Start Challenge</button>
+   div.innerHTML = `
+  <h3>${firm.name}</h3>
+  <p>💰 Profit Split: ${firm.profit_split}%</p>
+  <p>💸 Price: $${firm.price}</p>
+  <p>📉 Drawdown: ${firm.max_drawdown || "N/A"}</p>
+  <p>⏱ Payout: ${firm.payout || "N/A"}</p>
+  <button onclick="window.open('${firm.affiliate_url}')">
+    Start Challenge
+  </button>
+`;
       </a>
     `;
     container.appendChild(div);
