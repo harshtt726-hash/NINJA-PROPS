@@ -35,11 +35,12 @@ const { data, error } = await client
   .from('firm')
   .select('*');
 
-console.log(data, error);
-const firms = [
-  { name: "FTMO", profit_split: 90, price: 155, affiliate_url: "https://example.com" },
-  { name: "FundedNext", profit_split: 85, price: 120, affiliate_url: "https://example.com" },
-  { name: "SurgeTrader", profit_split: 80, price: 99, affiliate_url: "https://example.com" }
+console.log("FETCH START");
+
+const { data, error } = await client.from('firms').select('*');
+
+console.log("DATA:", data);
+console.log("ERROR:", error);
 ];
 
 function loadFirms() {
