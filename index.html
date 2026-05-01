@@ -1,42 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>PropVault</title>
-  <style>
-    body {
-      background: #0B0B0B;
-      color: white;
-      font-family: Arial;
-      text-align: center;
-    }
-    .card {
-      background: #111;
-      margin: 20px auto;
-      padding: 20px;
-      width: 250px;
-      border-radius: 10px;
-    }
-    button {
-      background: gold;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>PropVault</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0B0B0B;
+  color: #E5E7EB;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(17,17,17,0.7);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  color: #D4AF37;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  background: linear-gradient(90deg, #D4AF37, #fff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: #aaa;
+}
+
+/* GRID */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  margin: 20px;
+  padding: 20px;
+  width: 260px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #D4AF37;
+  box-shadow: 0 0 20px rgba(212,175,55,0.2);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  background: linear-gradient(90deg, #D4AF37, #fcd34d);
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+</style>
 </head>
 
 <body>
 
-<h1>PropVault</h1>
-<p>Best Prop Firms</p>
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">PropVault</div>
+  <div>Home | Firms | Deals</div>
+</nav>
 
-<div id="firms"></div>
+<!-- HERO -->
+<section class="hero">
+  <h1>Find the Best Prop Firm</h1>
+  <p>Compare pricing, drawdown & payouts</p>
+</section>
+
+<!-- FIRMS -->
+<div class="grid" id="firms"></div>
 
 <script>
 const firms = [
-  { name: "FTMO", profit_split: 90, price: 155 },
-  { name: "FundedNext", profit_split: 85, price: 120 },
-  { name: "SurgeTrader", profit_split: 80, price: 99 }
+  { name: "FTMO", profit_split: 90, price: 155, link: "https://google.com" },
+  { name: "FundedNext", profit_split: 85, price: 120, link: "https://google.com" },
+  { name: "SurgeTrader", profit_split: 80, price: 99, link: "https://google.com" }
 ];
 
 const container = document.getElementById("firms");
@@ -48,7 +128,7 @@ firms.forEach(firm => {
     <h3>${firm.name}</h3>
     <p>Profit Split: ${firm.profit_split}%</p>
     <p>Price: $${firm.price}</p>
-    <button>Start Challenge</button>
+    <button onclick="window.open('${firm.link}')">Start Challenge</button>
   `;
   container.appendChild(div);
 });
