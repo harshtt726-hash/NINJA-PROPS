@@ -37,7 +37,7 @@ const { data, error } = await client
 
 console.log("FETCH START");
 
-const { data, error } = await client.from('firms').select('*');
+const { data, error } = await client.from('firm').select('*');
 
 console.log("DATA:", data);
 console.log("ERROR:", error);
