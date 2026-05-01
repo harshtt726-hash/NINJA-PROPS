@@ -8,12 +8,12 @@ const SUPABASE_KEY = "sb_publishable_Txl4__d7Pbc0g4QzXfa6AA_nnH0ftgj";
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function loadFirms() {
-  const { data, error } = await client.from('firms').select('*');
+  const { data, error } = await client.from('firm').select('*');
 
   console.log("DATA:", data);
   console.log("ERROR:", error);
 
-  const container = document.getElementById("firms");
+  const container = document.getElementById("firm");
   container.innerHTML = "";
 
   if (!data) return;
