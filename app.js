@@ -35,3 +35,10 @@ async function loadFirms() {
 }
 
 loadFirms();
+console.log("Loading firms...");
+
+const { data, error } = await client
+  .from('firm')
+  .select('*');
+
+console.log(data, error);
