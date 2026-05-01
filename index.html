@@ -1,25 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>PropVault</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #0B0B0B;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+    }
+    .card {
+      background: #111;
+      margin: 20px auto;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+    }
+    button {
+      background: gold;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
 
-<nav>
-  <h2>PropVault</h2>
-  <button onclick="login()">Login</button>
-</nav>
+<h1>PropVault</h1>
+<p>Best Prop Firms</p>
 
-<section class="hero">
-  <h1>Find the Best Prop Firm</h1>
-  <p>Compare pricing, drawdown, and payouts</p>
-</section>
+<div id="firms"></div>
 
-<section id="firms"></section>
+<script>
+const firms = [
+  { name: "FTMO", profit_split: 90, price: 155 },
+  { name: "FundedNext", profit_split: 85, price: 120 },
+  { name: "SurgeTrader", profit_split: 80, price: 99 }
+];
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="app.js"></script>
+const container = document.getElementById("firms");
+
+firms.forEach(firm => {
+  const div = document.createElement("div");
+  div.className = "card";
+  div.innerHTML = `
+    <h3>${firm.name}</h3>
+    <p>Profit Split: ${firm.profit_split}%</p>
+    <p>Price: $${firm.price}</p>
+    <button>Start Challenge</button>
+  `;
+  container.appendChild(div);
+});
+</script>
+
 </body>
 </html>
